@@ -1,8 +1,10 @@
-import { Config } from '../config/config';
-import { AzureDevOps } from '../core/azureDevOps';
-import { ExecutedPipeline } from '../core/executedPipeline';
-import { Http } from '../core/http';
-import { PipelineId } from '../core/pipelineId';
+import {Config} from '../config/config';
+import {AzureDevOps} from '../core/azureDevOps';
+import {ExecutedPipeline} from '../core/executedPipeline';
+import {Http} from '../core/http';
+import {PipelineId} from '../core/pipelineId';
+import {StageId} from '../core/stageId';
+import {StageStatus} from './stageStatus';
 
 export class AzureDevOpsHttpCient implements AzureDevOps {
     private _http: Http;
@@ -30,5 +32,22 @@ export class AzureDevOpsHttpCient implements AzureDevOps {
         });
 
         return Promise.resolve(executedPipeline);
+    }
+
+    async approveStage(stageId: StageId, status: StageStatus, comment?: string): Promise<void> {
+        await this._http.post<ExecutedPipeline>({
+            url: `${this._config.azureDevOpsUri}/_apis/pipelines/approvals?api-version=6.1-preview.1`,
+            username: this._config.username,
+            pat: this._config.pat,
+            data: [
+                {
+                    approvalId: stageId,
+                    status: status.toString(),
+                    comment: comment
+                }
+            ]
+        });
+
+        return Promise.resolve();
     }
 }
