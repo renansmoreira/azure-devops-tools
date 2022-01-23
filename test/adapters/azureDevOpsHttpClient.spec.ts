@@ -66,7 +66,7 @@ describe('Azure DevOps HTTP client', () => {
 
     it('should approve stage', () => {
         config.getEnv.withArgs('AZURE_DEVOPS_URI').returns('');
-        const expectedUrl = `/_apis/pipelines/approvals?api-version=6.1-preview.1`;
+        const expectedUrl = '/_apis/pipelines/approvals?api-version=6.1-preview.1';
         const stageId = new StageId('200');
         const expectedData = [
             {
