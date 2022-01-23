@@ -1,6 +1,6 @@
 import {assert} from 'chai';
 import sinon, {SinonStubbedInstance} from 'sinon';
-import {AzureDevOpsHttpCient} from '../../src/adapters/azureDevOpsHttpClient';
+import {AzureDevOpsHttpClient} from '../../src/adapters/azureDevOpsHttpClient';
 import {Config} from '../../src/config/config';
 import {AzureDevOps} from '../../src/core/azureDevOps';
 import {Http} from '../../src/core/http';
@@ -18,7 +18,7 @@ describe('Azure DevOps HTTP client', () => {
         http = sinon.createStubInstance<Http>(HttpAxiosImpl);
         config = sinon.createStubInstance<Config>(Config);
 
-        azureDevOps = new AzureDevOpsHttpCient(http, config);
+        azureDevOps = new AzureDevOpsHttpClient(http, config);
     })
 
     it('should run a pipeline', () => {

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { AzureDevOps } from '../../core/azureDevOps';
-import { AzureDevOpsHttpCient } from '../../adapters/azureDevOpsHttpClient';
+import { AzureDevOpsHttpClient } from '../../adapters/azureDevOpsHttpClient';
 import { PipelineId } from '../../core/pipelineId';
 import { Http } from '../../core/http';
 import { HttpAxiosImpl } from '../../adapters/httpAxiosImpl';
@@ -11,7 +11,7 @@ dotenv.config();
 
 const http: Http = new HttpAxiosImpl();
 const config = new Config();
-const azureDevOps: AzureDevOps = new AzureDevOpsHttpCient(http, config);
+const azureDevOps: AzureDevOps = new AzureDevOpsHttpClient(http, config);
 
 (async function () {
     const pipelineId = new PipelineId('134');

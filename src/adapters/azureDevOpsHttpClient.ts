@@ -6,7 +6,7 @@ import {PipelineId} from '../core/pipelineId';
 import {StageId} from '../core/stageId';
 import {StageStatus} from './stageStatus';
 
-export class AzureDevOpsHttpCient implements AzureDevOps {
+export class AzureDevOpsHttpClient implements AzureDevOps {
     private _http: Http;
     private _config: Config;
 
