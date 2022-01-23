@@ -1,4 +1,4 @@
-import {SlashCommandBuilder} from '@discordjs/builders';
+import {SlashCommandBuilder, SlashCommandStringOption} from '@discordjs/builders';
 import {CommandInteraction} from 'discord.js';
 import {DiscordCommand} from './discordCommand';
 
@@ -8,8 +8,8 @@ export class PipelineCommand implements DiscordCommand {
     constructor() {
         this._commandBuilder = new SlashCommandBuilder()
             .setName('pipeline').setDescription('Runs pipeline')
-            .addStringOption((option) => option.setName('name').setDescription('Pipeline name'))
-            .addStringOption((option) => option.setName('branch').setDescription('Branch name'));
+            .addStringOption((option: SlashCommandStringOption) => option.setName('name').setDescription('Pipeline name'))
+            .addStringOption((option: SlashCommandStringOption) => option.setName('branch').setDescription('Branch name'));
     }
 
     async execute(interaction: CommandInteraction): Promise<void> {
