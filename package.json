@@ -6,7 +6,9 @@
   "scripts": {
     "start": "npx ts-node src/presentations/cli/index.ts",
     "lint": "npx eslint . --ext .ts",
-    "test": "npx mocha"
+    "test": "npx mocha",
+    "bot": "npx ts-node src/presentations/discordbot/index.ts",
+    "bot:update": "npx ts-node src/presentations/discordbot/updateCommands.ts"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +27,11 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
     "axios": "^0.25.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
     "dotenv": "^14.2.0"
   }
 }
