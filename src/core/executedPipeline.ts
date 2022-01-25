@@ -1,7 +1,8 @@
 export type ExecutedPipeline = {
-    success: boolean;
     id: number;
     name: string;
-    state: string;
-    href: string;
+    _links: {
+        'pipeline.web': { href: string },
+        web: { href: string }
+    };
 }
