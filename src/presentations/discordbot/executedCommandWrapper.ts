@@ -1,5 +1,5 @@
 import {ExecutedCommand} from './commands/executedCommand';
-import {CommandInteraction} from "discord.js";
+import {CommandInteraction} from 'discord.js';
 
 export class ExecutedCommandWrapper implements ExecutedCommand {
     private readonly _commandInteraction: CommandInteraction;
