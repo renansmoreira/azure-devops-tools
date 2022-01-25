@@ -1,8 +1,8 @@
-import {CommandInteraction} from 'discord.js';
 import {SlashCommandBuilder} from '@discordjs/builders';
+import {ExecutedCommand} from './executedCommand';
 
 export interface DiscordCommand {
     get name(): string;
     get commandBuilder(): Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
-    execute(interaction: CommandInteraction): void;
+    execute(executedCommand: ExecutedCommand): void;
 }

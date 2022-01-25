@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import {Client, Intents, Interaction} from 'discord.js';
-import commandExecutor from './commands/commandExecutor';
+import commandExecutor from './commandExecutor';
 import {Config} from '../../config/config';
 
 dotenv.config();
