@@ -1,6 +1,14 @@
-export class Config {
+import {Config} from '../core/config';
+import {UserCredentials} from '../core/UserCredentials';
+import {UserId} from '../core/userId';
+
+export class ConfigJsonProvider implements Config {
     getEnv(name: string): string {
         return process.env[name] || '';
+    }
+
+    getCredentials(userId: UserId): UserCredentials {
+        throw new Error('Method not implemented.');
     }
 
     public get azureDevOpsUri(): string {

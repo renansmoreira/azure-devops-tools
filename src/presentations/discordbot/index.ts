@@ -1,17 +1,17 @@
 import dotenv from 'dotenv';
 import {Client, Intents, Interaction} from 'discord.js';
 import commandExecutor from './commandExecutor';
-import {Config} from '../../config/config';
+import {ConfigJsonProvider} from '../../config/configJsonProvider';
 
 dotenv.config();
-const config = new Config();
+const config = new ConfigJsonProvider();
 
 (async function () {
     const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 
     client.on('interactionCreate', async (interaction: Interaction) => {
         if (!interaction.isCommand()) return;
-        await commandExecutor(interaction);
+        await commandExecutor(config, interaction);
     });
 
     client.once('ready', () => {

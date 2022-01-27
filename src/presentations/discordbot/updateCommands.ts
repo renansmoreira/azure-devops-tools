@@ -3,10 +3,10 @@ import {REST} from '@discordjs/rest';
 import {Routes} from 'discord-api-types/v9';
 import commands from './commands';
 import {DiscordCommand} from './commands/discordCommand';
-import {Config} from '../../config/config';
+import {ConfigJsonProvider} from '../../config/configJsonProvider';
 
 dotenv.config();
-const config = new Config();
+const config = new ConfigJsonProvider();
 
 (async function () {
     const rest = new REST({version: '9'}).setToken(config.discordToken);
