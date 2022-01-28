@@ -1,7 +1,7 @@
 import {assert} from 'chai';
 import sinon, {SinonStubbedInstance} from 'sinon';
 import {AzureDevOpsHttpClient} from '../../src/adapters/azureDevOpsHttpClient';
-import {ConfigJsonProvider} from '../../src/config/configJsonProvider';
+import {ConfigProvider} from '../../src/config/configProvider';
 import {AzureDevOps} from '../../src/core/azureDevOps';
 import {Http} from '../../src/core/http';
 import {HttpAxiosImpl} from '../../src/adapters/httpAxiosImpl';
@@ -11,12 +11,12 @@ import {StageId} from '../../src/core/stageId';
 
 describe('Azure DevOps HTTP client', () => {
     let http: SinonStubbedInstance<Http>;
-    let config: SinonStubbedInstance<ConfigJsonProvider>;
+    let config: SinonStubbedInstance<ConfigProvider>;
     let azureDevOps: AzureDevOps;
 
     beforeEach(() => {
         http = sinon.createStubInstance<Http>(HttpAxiosImpl);
-        config = sinon.createStubInstance<ConfigJsonProvider>(ConfigJsonProvider);
+        config = sinon.createStubInstance<ConfigProvider>(ConfigProvider);
 
         azureDevOps = new AzureDevOpsHttpClient(http, config);
     })

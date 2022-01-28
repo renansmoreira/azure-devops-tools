@@ -1,14 +1,12 @@
 import {Config} from '../core/config';
-import {UserCredentials} from '../core/UserCredentials';
-import {UserId} from '../core/userId';
 
-export class ConfigJsonProvider implements Config {
+export class ConfigProvider implements Config {
     getEnv(name: string): string {
         return process.env[name] || '';
     }
 
-    getCredentials(userId: UserId): UserCredentials {
-        throw new Error('Method not implemented.');
+    get usersConfigPath(): string {
+        return this.getEnv('USERS_CONFIG_PATH');
     }
 
     public get azureDevOpsUri(): string {

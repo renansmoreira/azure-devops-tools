@@ -1,11 +1,11 @@
 import {AzureDevOpsHttpClient} from '../../../adapters/azureDevOpsHttpClient';
 import {HttpAxiosImpl} from '../../../adapters/httpAxiosImpl';
-import {ConfigJsonProvider} from '../../../config/configJsonProvider';
+import {ConfigProvider} from '../../../config/configProvider';
 import {PipelineCommand} from './pipelineCommand';
 import {DiscordCommand} from './discordCommand';
 
 const http = new HttpAxiosImpl();
-const config = new ConfigJsonProvider();
+const config = new ConfigProvider();
 const azureDevOps = new AzureDevOpsHttpClient(http, config);
 
 export default [

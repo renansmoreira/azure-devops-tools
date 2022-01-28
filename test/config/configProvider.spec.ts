@@ -1,12 +1,11 @@
 import assert from 'assert';
-import { ConfigJsonProvider } from '../../src/config/configJsonProvider';
-
+import { ConfigProvider } from '../../src/config/configProvider';
 
 describe('Config', () => {
-    let config: ConfigJsonProvider;
+    let config: ConfigProvider;
 
     beforeEach(() => {
-        config = new ConfigJsonProvider();
+        config = new ConfigProvider();
     });
 
     it('should get a env variable', () => {
