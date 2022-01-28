@@ -1,4 +1,4 @@
-import {ConfigJsonProvider} from '../config/configJsonProvider';
+import {ConfigProvider} from '../config/configProvider';
 import {AzureDevOps} from '../core/azureDevOps';
 import {ExecutedPipeline} from '../core/executedPipeline';
 import {Http} from '../core/http';
@@ -8,9 +8,9 @@ import {StageStatus} from './stageStatus';
 
 export class AzureDevOpsHttpClient implements AzureDevOps {
     private _http: Http;
-    private _config: ConfigJsonProvider;
+    private _config: ConfigProvider;
 
-    constructor(http: Http, config: ConfigJsonProvider) {
+    constructor(http: Http, config: ConfigProvider) {
         this._http = http;
         this._config = config;
     }

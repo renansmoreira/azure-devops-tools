@@ -1,10 +1,7 @@
-import {UserId} from './userId';
-import {UserCredentials} from './UserCredentials';
-
 export interface Config {
     getEnv(name: string): string;
 
-    getCredentials(userId: UserId): UserCredentials;
+    get usersConfigPath(): string;
 
     get azureDevOpsUri(): string;
 
