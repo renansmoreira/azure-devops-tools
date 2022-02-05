@@ -4,7 +4,7 @@ import {ConfigProvider} from '../../config/configProvider';
 import {UserProvider} from '../../adapters/userProvider';
 import {CommandExecutor} from './commandExecutor';
 import commands from './commands';
-import {LoggerProvider} from '../../adapters/LoggerProvider';
+import {LoggerProvider} from '../../adapters/loggerProvider';
 
 
 (async function () {

@@ -10,7 +10,7 @@ import {ExecutedCommandWrapper} from '../../../src/presentations/discordbot/exec
 import {ExecutedPipeline} from '../../../src/core/executedPipeline';
 import {UserCredentials} from '../../../src/core/userCredentials';
 import {UserId} from '../../../src/core/userId';
-import {LoggerProvider} from '../../../src/adapters/LoggerProvider';
+import {LoggerProvider} from '../../../src/adapters/loggerProvider';
 
 describe('Discord "pipeline" command', () => {
     let userCredentials: UserCredentials;

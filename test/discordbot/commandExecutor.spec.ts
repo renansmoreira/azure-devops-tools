@@ -9,7 +9,7 @@ import {UserCredentials} from '../../src/core/userCredentials';
 import {assert} from 'chai';
 import {Users} from '../../src/core/users';
 import {Logger} from '../../src/core/logger';
-import {LoggerProvider} from '../../src/adapters/LoggerProvider';
+import {LoggerProvider} from '../../src/adapters/loggerProvider';
 
 describe('Command executor', () => {
     let userCredentials: UserCredentials;

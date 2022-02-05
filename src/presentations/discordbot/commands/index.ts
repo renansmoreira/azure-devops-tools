@@ -3,7 +3,7 @@ import {HttpAxiosImpl} from '../../../adapters/httpAxiosImpl';
 import {ConfigProvider} from '../../../config/configProvider';
 import {PipelineCommand} from './pipelineCommand';
 import {DiscordCommand} from './discordCommand';
-import {LoggerProvider} from '../../../adapters/LoggerProvider';
+import {LoggerProvider} from '../../../adapters/loggerProvider';
 
 const http = new HttpAxiosImpl();
 const config = new ConfigProvider();
