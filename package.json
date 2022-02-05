@@ -4,10 +4,10 @@
   "description": "",
   "main": "src/cli/index.ts",
   "scripts": {
-    "start": "npx ts-node src/presentations/cli/index.ts",
     "lint": "npx eslint . --ext .ts",
     "test": "npx mocha",
-    "bot": "npx ts-node src/presentations/discordbot/index.ts",
+    "bot:build": "npx tsc",
+    "bot:run": "npx ts-node src/presentations/discordbot/index.ts",
     "bot:update": "npx ts-node src/presentations/discordbot/updateCommands.ts"
   },
   "keywords": [],

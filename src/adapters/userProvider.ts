@@ -1,7 +1,7 @@
 import {Users} from '../core/users';
 import {UserId} from '../core/userId';
 import {UserCredentials} from '../core/userCredentials';
-import fs from 'fs';
+import * as fs from 'fs';
 import {UsersConfig} from '../core/usersConfig';
 import {Config} from '../core/config';
 

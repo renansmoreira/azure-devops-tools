@@ -1,0 +1,14 @@
+{
+    "usersCredentials": [
+        {
+            "id": "123",
+            "username": "username1",
+            "pat": "pat1"
+        },
+        {
+            "id": "333",
+            "username": "username2",
+            "pat": "pat2"
+        }
+    ]
+}

@@ -1,20 +1,18 @@
 import {ExecutedCommand} from './commands/executedCommand';
 import {CommandInteraction} from 'discord.js';
-import {UserId} from '../../core/userId';
-import {UserCredentials} from '../../core/UserCredentials';
-import {Config} from '../../core/config';
+import {UserCredentials} from '../../core/userCredentials';
 
 export class ExecutedCommandWrapper implements ExecutedCommand {
-    private readonly _config: Config;
+    private readonly _userCredentials: UserCredentials;
     private readonly _commandInteraction: CommandInteraction;
 
-    constructor(config: Config, commandInteraction: CommandInteraction) {
-        this._config = config;
+    constructor(userCredentials: UserCredentials, commandInteraction: CommandInteraction) {
+        this._userCredentials = userCredentials;
         this._commandInteraction = commandInteraction;
     }
 
-    getCredentials(userId: UserId): UserCredentials {
-        return this._config.getCredentials(userId);
+    get credentials(): UserCredentials {
+        return this._userCredentials;
     }
 
     deferReply(): Promise<void> {

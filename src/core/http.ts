@@ -6,5 +6,5 @@ export interface HttpPostOptions {
     url: string;
     username?: string;
     pat?: string;
-    data?: { [key: string]: any }
+    data?: unknown
 }

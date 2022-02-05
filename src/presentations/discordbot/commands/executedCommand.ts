@@ -1,8 +1,7 @@
-import {UserCredentials} from '../../../core/UserCredentials';
-import {UserId} from '../../../core/userId';
+import {UserCredentials} from '../../../core/userCredentials';
 
 export interface ExecutedCommand {
-    getCredentials(userId: UserId): UserCredentials;
+    get credentials(): UserCredentials;
     deferReply(): Promise<void>;
     editReply(message: string): Promise<void>;
     getString(paramName: string): string;

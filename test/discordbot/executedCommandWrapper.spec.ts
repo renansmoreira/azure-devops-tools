@@ -3,37 +3,27 @@ import sinon, {SinonStubbedInstance} from 'sinon';
 import {ExecutedCommandWrapper} from '../../src/presentations/discordbot/executedCommandWrapper';
 import {assert} from 'chai';
 import {UserId} from '../../src/core/userId';
-import {UserCredentials} from '../../src/core/UserCredentials';
-import {ConfigJsonProvider} from '../../src/config/configJsonProvider';
+import {UserCredentials} from '../../src/core/userCredentials';
 
 describe('Executed command wrapper', () => {
-    let config: SinonStubbedInstance<ConfigJsonProvider>;
+    let userCredentials: UserCredentials;
     let commandInteraction: SinonStubbedInstance<CommandInteraction>;
     let wrappedCommand: ExecutedCommandWrapper;
 
     beforeEach(() => {
-        config = sinon.createStubInstance(ConfigJsonProvider);
+        userCredentials = {
+            id: new UserId('id'),
+            username: 'username',
+            pat: 'pat'
+        };
         commandInteraction = sinon.createStubInstance(CommandInteraction)
-        wrappedCommand = new ExecutedCommandWrapper(config, commandInteraction);
+        wrappedCommand = new ExecutedCommandWrapper(userCredentials, commandInteraction);
     });
 
-    [
-        ['userid1', 'username1', 'pat1'],
-        ['userid2', 'username2', 'pat2']
-    ].forEach(([id, username, pat]) => {
-        it('should get user command credentials', () => {
-            const userId = new UserId(id);
-            const expectedCredentials: UserCredentials = {
-                id: userId,
-                username: username,
-                pat: pat
-            };
-            config.getCredentials.withArgs(userId).returns(expectedCredentials);
+    it('should get user command credentials', () => {
+        const foundUserCredentials = wrappedCommand.credentials;
 
-            const userCredentials = wrappedCommand.getCredentials(userId);
-
-            assert.deepEqual(expectedCredentials, userCredentials);
-        });
+        assert.deepEqual(userCredentials, foundUserCredentials);
     });
 
     it('should defer reply', () => {
