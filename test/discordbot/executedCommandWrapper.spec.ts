@@ -21,7 +21,7 @@ describe('Executed command wrapper', () => {
     });
 
     it('should get user command credentials', () => {
-        const foundUserCredentials = wrappedCommand.credentials;
+        const foundUserCredentials = wrappedCommand.getCredentials();
 
         assert.deepEqual(userCredentials, foundUserCredentials);
     });

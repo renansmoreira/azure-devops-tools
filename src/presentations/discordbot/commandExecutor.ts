@@ -26,7 +26,6 @@ export class CommandExecutor {
                 await command.execute(new ExecutedCommandWrapper(userCredentials, interaction));
             } catch (error) {
                 this._logger.error(error);
-                await interaction.reply({content: 'There was an error while executing this command!', ephemeral: true});
             }
         }
     }

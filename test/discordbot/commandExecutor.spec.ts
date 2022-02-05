@@ -50,17 +50,6 @@ describe('Command executor', () => {
         assert.isTrue(commandStub.execute.notCalled);
     });
 
-    it('should reply errors', async () => {
-        const expectedReply = {content: 'There was an error while executing this command!', ephemeral: true};
-        const interaction = createStubbedCommandInteraction(commandStub.name);
-        addStubbedDiscordUser(interaction);
-        commandStub.execute.throws(Error);
-
-        await commandExecutor.execute(interaction);
-
-        assert.isTrue(interaction.reply.calledOnceWith(expectedReply));
-    });
-
     it('should log errors', async () => {
         const interaction = createStubbedCommandInteraction(commandStub.name);
         addStubbedDiscordUser(interaction);

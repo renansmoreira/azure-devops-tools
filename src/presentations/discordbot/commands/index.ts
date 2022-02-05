@@ -3,11 +3,13 @@ import {HttpAxiosImpl} from '../../../adapters/httpAxiosImpl';
 import {ConfigProvider} from '../../../config/configProvider';
 import {PipelineCommand} from './pipelineCommand';
 import {DiscordCommand} from './discordCommand';
+import {LoggerProvider} from '../../../adapters/LoggerProvider';
 
 const http = new HttpAxiosImpl();
 const config = new ConfigProvider();
 const azureDevOps = new AzureDevOpsHttpClient(http, config);
+const logger = new LoggerProvider();
 
 export default [
-    new PipelineCommand(azureDevOps)
+    new PipelineCommand(azureDevOps, logger)
 ] as DiscordCommand[];

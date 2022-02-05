@@ -11,7 +11,7 @@ export class ExecutedCommandWrapper implements ExecutedCommand {
         this._commandInteraction = commandInteraction;
     }
 
-    get credentials(): UserCredentials {
+    getCredentials(): UserCredentials {
         return this._userCredentials;
     }
 

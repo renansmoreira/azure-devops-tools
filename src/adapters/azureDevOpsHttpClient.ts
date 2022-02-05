@@ -5,6 +5,7 @@ import {Http} from '../core/http';
 import {PipelineId} from '../core/pipelineId';
 import {StageId} from '../core/stageId';
 import {StageStatus} from './stageStatus';
+import {UserCredentials} from '../core/userCredentials';
 
 export class AzureDevOpsHttpClient implements AzureDevOps {
     private _http: Http;
@@ -15,11 +16,11 @@ export class AzureDevOpsHttpClient implements AzureDevOps {
         this._config = config;
     }
 
-    async runPipeline(pipelineId: PipelineId, branchName: string): Promise<ExecutedPipeline> {
+    async runPipeline(userCredentials: UserCredentials, pipelineId: PipelineId, branchName: string): Promise<ExecutedPipeline> {
         const executedPipeline = await this._http.post<ExecutedPipeline>({
             url: `${this._config.azureDevOpsUri}/_apis/pipelines/${pipelineId}/runs?api-version=6.1-preview.1`,
-            username: this._config.username,
-            pat: this._config.pat,
+            username: userCredentials.username,
+            pat: userCredentials.pat,
             data: {
                 resources: {
                     repositories: {
